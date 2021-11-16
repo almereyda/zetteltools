@@ -43,7 +43,7 @@ def generate_force_graph(id_files_dict: Dict, id_title_dict: Dict, dirname: str 
         with open(OUTPUT_FILE_NAME, "w") as out:
             out.write(s.substitute(data=data))
 
-    os.system("open {}".format(OUTPUT_FILE_NAME))
+    os.system("xdg-open {}".format(OUTPUT_FILE_NAME))
 
 
 if __name__ == "__main__":
