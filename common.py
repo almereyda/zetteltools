@@ -10,16 +10,16 @@ def get_files(folder: str) -> List:
 
 
 def get_id_files_dict(files: List) -> Dict:
-    return {item[:12]: item for item in files}
+    return {item[:-3]: item for item in files}
 
 
 def get_id_title_dict(files: List) -> Dict:
-    return {item[:12]: item[:-3] for item in files}
+    return {item[:-3]: item[:-3] for item in files}
 
 
 def get_links_from_file(file: str, dirname: str = "") -> List:
     file_path = "{}/{}".format(dirname, file) if dirname else file
     with open(file_path, "r") as f:
         lines = f.read()
-        links = re.findall(r"\[\[(\d{12})\]\]", lines)
+        links = re.findall(r"\[\[(.*?)\]\]", lines)
     return links
